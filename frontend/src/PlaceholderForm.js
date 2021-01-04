@@ -1,14 +1,14 @@
 import { useRef, useEffect } from 'react';
 
 export default (props) => {
-    const titleInput = useRef(null);
-    const urlInput = useRef(null);
+    const subjectInput = useRef(null);
+    const noteInput = useRef(null);
     const createPlaceholder = async (event) => {
-        event.preventDefault()
-        const title = titleInput.current.value; 
-        const url = urlInput.current.value;
+        // event.preventDefault();
+        const subject = subjectInput.current.value; 
+        const note = noteInput.current.value;
         const body = JSON.stringify({
-            title, url
+            subject, note
         });
         event.currentTarget.reset();
         try {
@@ -20,16 +20,16 @@ export default (props) => {
               body: body
             })
             const data = await response.json();
-            // event.currentTarget.reset()
-            // props.updateBookmarks([...props.bookmarks.data])
+            // event.currentTarget.reset();
+            props.updatePlaceholder([...props.placeholder.data]);
         } catch (error) {
             console.error(error)
         }
     }
     return (
         <form onSubmit={createPlaceholder}>
-            Title: <input type="text" ref={titleInput} /><br />
-            Url: <input type="text" ref={urlInput} /><br />
+            Subject: <input type="text" ref={subjectInput} /><br />
+            Note: <input type="text" ref={noteInput} /><br />
             <input type="submit" value="Add"/>
         </form>
     )

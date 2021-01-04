@@ -10,13 +10,12 @@ function nav() {
 
     return (
         <nav>
-            <h3>Logo</h3>
             <ul className="nav-links">
                 <Link style={navStyle} to="/pageone">
-                    <li>Page One</li>
+                    <li>Wall of Sticky Notes</li>
                 </Link>
                 <Link style={navStyle} to="/pagetwo">
-                    <li>Page Two</li>
+                    <li>Random Words</li>
                 </Link>
             </ul>
         </nav>
