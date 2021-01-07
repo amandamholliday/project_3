@@ -11,8 +11,7 @@ function PageOne() {
     //     background: 'pink'
     // };
 
-    const [placeholder, setPlaceholder] = useState([])
-    const [token, setToken] = useState('');
+    const [placeholder, setPlaceholder] = useState([]);
 
   // Read
   const fetchPlaceholder = async () => {
@@ -24,7 +23,6 @@ function PageOne() {
       console.error(error)
     }
   }
-
 
   // Delete
   const deletePlaceholder = async (id) => {
@@ -41,8 +39,7 @@ function PageOne() {
   }
   useEffect(()=> {
     fetchPlaceholder()
-  }, [])  
-  console.log(placeholder);
+  }, [placeholder])  
     return (
         <div>
             <header className="App-header">
@@ -50,9 +47,10 @@ function PageOne() {
             <PlaceholderForm placeholder={placeholder} />
             <ul className="notes">
             {
-              placeholder.map((placeholder, index) => {
+              placeholder.map((sticky, index) => {
                 return (
-                  <StickyNote key={index} placeholder={placeholder} setPlaceholder={setPlaceholder}
+                  <StickyNote key={index} placeholder={placeholder} setPlaceholder={setPlaceholder} 
+                  sticky={sticky}
                     deletePlaceholder={deletePlaceholder}
                   />
                 )

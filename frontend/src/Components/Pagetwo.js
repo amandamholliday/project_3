@@ -7,22 +7,24 @@ function Pagetwo() {
         fetchItems();
     }, []);
 
-    const [items, setItems] = useState([]);
+    const [item, setItem] = useState({});
 
     const fetchItems = async () => {
-        const data = await fetch('http://api.icndb.com/jokes/random');
-        const items = await data.json();
-        console.log(items);
-        // setItems(items);
+        const response = await fetch('http://api.icndb.com/jokes/random');
+        const data = await response.json();
+        setItem(data);
     };
 
     return (
         <div>
             <h1>Inspire me with some knowledge:</h1>
             <ul>~currently work in progress~</ul>
-            {items.map(item => (
-                <h1>{item}</h1>
-            ))}
+            {/* <h1>{item.value.joke}</h1> */}
+            {/* {items.map(item => {
+                return (
+                <h1>{item.value.joke}</h1>
+                )
+            })} */}
         </div>
     )
 }
