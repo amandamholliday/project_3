@@ -1,5 +1,5 @@
 const express = require('express');
-const app = require('./api/app');
+const app = require('./backend_api/app.js');
 app.use(express.static('build'));
 
 app.get('*', (req, res)=> {
