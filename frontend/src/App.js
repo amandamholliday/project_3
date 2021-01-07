@@ -17,10 +17,10 @@ function App() {
           <Route path="/pageone" component={PageOne} />
           <Route path="/pagetwo" component={Pagetwo} />
           <Route path="/timer" component={Timer} />
-          <Route path="/placeholder/:id" render={
-            <StickyNote />
+          {/* <Route path="/placeholder/:id" render={ routerProps => 
+            <StickyNote {...routerProps} />
           } />
-          <Route path="/placeholder" component={StickyNote} />
+          <Route path="/placeholder" component={StickyNote} /> */}
         </Switch>
       </div>
     </Router>

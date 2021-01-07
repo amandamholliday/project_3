@@ -25,19 +25,6 @@ function PageOne() {
     }
   }
 
-  // Update
-  const updatePlaceholder = async (id) => {
-    try {
-      const response = await fetch(`http://localhost:3000/placeholder/${id}`, {
-        method: 'UPDATE',
-      })
-      const data = await response.json();
-      const filteredPlaceholder = placeholder.filter(placeholder => placeholder._id !== data._id)
-      setPlaceholder(filteredPlaceholder);
-    } catch(error) {
-      console.error(error)
-    }
-  }
 
   // Delete
   const deletePlaceholder = async (id) => {
@@ -54,21 +41,18 @@ function PageOne() {
   }
   useEffect(()=> {
     fetchPlaceholder()
-    if(window.localStorage.getItem('token')){
-      setToken(window.localStorage.getItem('token'))
-    }
-  }, [])
-
+  }, [])  
+  console.log(placeholder);
     return (
         <div>
             <header className="App-header">
             <h1>Write a note!</h1>
-            <PlaceholderForm updatePlaceholder={updatePlaceholder} placeholder={placeholder} />
+            <PlaceholderForm placeholder={placeholder} />
             <ul className="notes">
             {
-              placeholder.map(placeholder => {
+              placeholder.map((placeholder, index) => {
                 return (
-                  <StickyNote placeholder={placeholder} updatePlaceholder={updatePlaceholder}
+                  <StickyNote key={index} placeholder={placeholder} setPlaceholder={setPlaceholder}
                     deletePlaceholder={deletePlaceholder}
                   />
                 )
