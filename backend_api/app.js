@@ -30,3 +30,5 @@ app.use('/placeholder', placeholderController);
 app.listen(PORT, () => {
     console.log('🎉🎊', 'celebrations happening on port', PORT, '🎉🎊');
 });
+
+module.exports = app;
