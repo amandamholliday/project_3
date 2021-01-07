@@ -16,7 +16,7 @@ function PageOne() {
   // Read
   const fetchPlaceholder = async () => {
     try{
-      const response = await fetch('http://localhost:3000/placeholder');
+      const response = await fetch('https://motivation-machine.herokuapp.com/api/placeholder');
       const data = await response.json();
       setPlaceholder(data)
     }catch (error) {
@@ -27,7 +27,7 @@ function PageOne() {
   // Delete
   const deletePlaceholder = async (id) => {
     try {
-      const response = await fetch(`http://localhost:3000/placeholder/${id}`, {
+      const response = await fetch(`https://motivation-machine.herokuapp.com/api/placeholder/${id}`, {
         method: 'DELETE',
       })
       const data = await response.json();

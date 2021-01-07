@@ -16,7 +16,7 @@ function StickyNote(props) {
         subject, note
     })
     try {
-      const response = await fetch(`http://localhost:3000/placeholder/${props.sticky._id}`, {
+      const response = await fetch(`https://motivation-machine.herokuapp.com/api/placeholder/${props.sticky._id}`, {
         method: 'PUT',
         headers : {
             'Content-type': 'application/json'

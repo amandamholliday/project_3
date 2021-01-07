@@ -12,7 +12,7 @@ export default (props) => {
         });
         event.currentTarget.reset();
         try {
-            const response = await fetch('http://localhost:3000/placeholder', {
+            const response = await fetch('https://motivation-machine.herokuapp.com/api/placeholder', {
               method: 'POST',
               headers : {
                   'Content-type': 'application/json'
