@@ -25,7 +25,7 @@ mongoose.connection.once('open', () => {
     console.log('Connected to Mongo ')
 })
 
-app.use('/placeholder', placeholderController);
+app.use('/api/placeholder', placeholderController);
 
 app.listen(PORT, () => {
     console.log('🎉🎊', 'celebrations happening on port', PORT, '🎉🎊');
