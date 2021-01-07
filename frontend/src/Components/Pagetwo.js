@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import './App.css';
+import '../App.css';
 
 function Pagetwo() {
 
@@ -18,6 +18,8 @@ function Pagetwo() {
 
     return (
         <div>
+            <h1>Inspire me with some knowledge:</h1>
+            <ul>~currently work in progress~</ul>
             {items.map(item => (
                 <h1>{item}</h1>
             ))}

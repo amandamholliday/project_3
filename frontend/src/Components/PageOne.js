@@ -1,14 +1,15 @@
 import { useState, useEffect } from 'react';
 import React from 'react';
-import './App.css';
+import '../App.css';
 import { Link } from 'react-router-dom';
-import PlaceholderForm from './PlaceholderForm';
+import PlaceholderForm from '../PlaceholderForm';
+import StickyNote from './StickyNote';
 
 function PageOne() {
 
-    const pageStyle = {
-        background: 'pink'
-    };
+    // const pageStyle = {
+    //     background: 'pink'
+    // };
 
     const [placeholder, setPlaceholder] = useState([])
     const [token, setToken] = useState('');
@@ -59,15 +60,29 @@ function PageOne() {
   }, [])
 
     return (
-        <div style={pageStyle}>
+        <div>
             <header className="App-header">
-            <h1>WRITE IT DOWN!</h1>
-            <PlaceholderForm updatePlaceholder={setPlaceholder} placeholder={placeholder} />
+            <h1>Write a note!</h1>
+            <PlaceholderForm updatePlaceholder={updatePlaceholder} placeholder={placeholder} />
             <ul className="notes">
             {
               placeholder.map(placeholder => {
                 return (
-                <p key={placeholder._id} className="stickynote">
+                  <StickyNote placeholder={placeholder} updatePlaceholder={updatePlaceholder}
+                    deletePlaceholder={deletePlaceholder}
+                  />
+                )
+              })
+            }
+            </ul>
+          </header>
+        </div>
+    )
+}
+
+export default PageOne;
+
+                {/* <p key={placeholder._id} className="stickynote">
                     <b>{`${placeholder.subject}`}</b><br/>
                     {`${placeholder.note}`}<br />
                 <button onClick={
@@ -80,14 +95,4 @@ function PageOne() {
                         updatePlaceholder(placeholder._id)
                     }
                 }>Edit </button>
-                </p>
-                )
-              })
-            }
-            </ul>
-          </header>
-        </div>
-    )
-}
-
-export default PageOne;
+                </p> */}
