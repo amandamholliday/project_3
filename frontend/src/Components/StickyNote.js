@@ -51,16 +51,20 @@ function StickyNote(props) {
                         updatePlaceholder(props.sticky._id)
                     }
                 }>Edit </button> */}
-            <form onSubmit={(event)=>{
-                event.preventDefault();
-                // console.log(props.sticky._id);
-                updateSticky(props.sticky._id)
-                event.currentTarget.reset();
-            }}>
-            Subject: <input type="text" ref={subjectInput} /><br />
-            Note: <input type="text" ref={noteInput} /><br />
-            <input type="submit" value="Edit"/>
-            </form>
+                {/* <button onclick={ (event) => {
+                    myFunction();
+                }
+                }>Edit</button> */}
+                    <form onSubmit={(event)=>{
+                        event.preventDefault();
+                        // console.log(props.sticky._id);
+                        updateSticky(props.sticky._id)
+                        event.currentTarget.reset();
+                    }}>
+                    Subject: <input type="text" ref={subjectInput} /><br />
+                    Note: <input type="text" ref={noteInput} /><br />
+                    <input type="submit" value="Edit"/>
+                    </form>
         </div>
     )
 }
